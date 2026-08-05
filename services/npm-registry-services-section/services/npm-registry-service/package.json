@@ -1,0 +1,22 @@
+{
+  "name": "@red-cup-engineering/npm-registry-service",
+  "version": "1.1.4",
+  "description": "Builds the private npm registry from package sources, serves it over HTTP, and reads any npm registry back as a graph of packages, dependencies, and owners. Use when publishing packages to the registry, running a registry face, or asking what depends on what.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "exports": "./src/package-registry.mjs",
+  "bin": {
+    "build-npm-registry": "./scripts/build-registry.mjs",
+    "publish-local-npm-package": "./scripts/publish-local-package.mjs",
+    "serve-npm-registry": "./scripts/serve-registry.mjs",
+    "render-npm-registry-graph": "./scripts/render-registry-graph.mjs"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "verify": "node --check src/package-registry.mjs && node --check src/registry-graph.mjs && node --check scripts/build-registry.mjs && node --check scripts/publish-local-package.mjs && node --check scripts/render-registry-graph.mjs && node --check scripts/serve-registry.mjs && node --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

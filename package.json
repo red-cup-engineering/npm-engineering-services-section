@@ -1,0 +1,7 @@
+{
+  "name": "@red-cup-engineering/npm-services-section",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Groups npm package and registry services."
+}

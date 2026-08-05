@@ -1,0 +1,19 @@
+{
+  "name": "@red-cup-engineering/npm-package-tree-discovery-service",
+  "version": "1.0.0",
+  "description": "Walks a directory tree for package.json files and reports which are eligible npm-registry release candidates and which were deliberately skipped, and why. Use when a registry build needs a package list and no one should have to hand-maintain one.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "exports": "./src/discover-npm-packages.mjs",
+  "bin": {
+    "discover-npm-packages": "./scripts/discover-npm-packages.mjs"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "verify": "node --check src/discover-npm-packages.mjs && node --check scripts/discover-npm-packages.mjs && node --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

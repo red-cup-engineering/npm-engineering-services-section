@@ -1,0 +1,5 @@
+{
+  "name": "@red-cup-engineering/npm-registry-services-section",
+  "private": true,
+  "description": "Holds the services for npm registries. Use when working on the private npm registry or reading any npm registry's packages, versions, and dependencies."
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@red-cup-engineering/npm-registry-query-service",
+  "version": "1.0.0",
+  "description": "Answers whether a package exists in a built or live npm registry, searches package names by pattern, and looks up direct dependencies and dependents — cleanly, with a real not-found answer instead of a crash. Use when asking whether the firm has a package, or what depends on what, without deriving a whole graph.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "exports": "./src/query-npm-registry.mjs",
+  "bin": {
+    "query-npm-registry": "./scripts/query-npm-registry.mjs"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "verify": "node --check src/query-npm-registry.mjs && node --check scripts/query-npm-registry.mjs && node --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
