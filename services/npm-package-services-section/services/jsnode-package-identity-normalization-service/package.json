@@ -1,0 +1,16 @@
+{
+  "name": "@red-cup-engineering/jsnode-package-identity-normalization-service",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Pure JSNode package-identity normalization from an admitted package name and explicit owner.",
+  "exports": "./src/normalize-jsnode-package-identity.mjs",
+  "scripts": {
+    "check": "node --check src/normalize-jsnode-package-identity.mjs",
+    "test": "node --test test/*.test.mjs",
+    "verify": "npm run check && npm test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "@red-cup-engineering/jsnode-package-identity-reference-normalization-service",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Pure ordered replacement of admitted npm package identity references in one source resource.",
+  "exports": "./src/normalize-jsnode-package-identity-references.mjs",
+  "scripts": {
+    "check": "node --check src/normalize-jsnode-package-identity-references.mjs",
+    "test": "node --test test/*.test.mjs",
+    "verify": "npm run check && npm test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

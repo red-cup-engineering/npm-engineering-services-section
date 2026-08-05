@@ -1,0 +1,16 @@
+{
+  "name": "@red-cup-engineering/jsnode-package-body-observation-service",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Observes the named JSNode package carriers and active source resources beneath one explicit repository root.",
+  "exports": "./src/observe-jsnode-package-body.mjs",
+  "scripts": {
+    "check": "node --check src/observe-jsnode-package-body.mjs",
+    "test": "node --test test/*.test.mjs",
+    "verify": "npm run check && npm test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

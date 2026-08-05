@@ -1,0 +1,16 @@
+{
+  "name": "@red-cup-engineering/jsnode-package-owner-projection-service",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Projects one explicit repository package path to the currently declared npm owner policy.",
+  "exports": "./src/project-jsnode-package-owner.mjs",
+  "scripts": {
+    "check": "node --check src/project-jsnode-package-owner.mjs",
+    "test": "node --test test/*.test.mjs",
+    "verify": "npm run check && npm test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

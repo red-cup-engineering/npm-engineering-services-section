@@ -1,0 +1,16 @@
+{
+  "name": "@red-cup-engineering/jsnode-package-scaffold-service",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Builds a new package's package.json and standard scripts from its name and layer. Use when creating a package skeleton that matches house conventions instead of hand-writing one.",
+  "exports": "./src/scaffold-jsnode-package.mjs",
+  "scripts": {
+    "check": "node --check src/scaffold-jsnode-package.mjs",
+    "test": "node --test test/*.test.mjs",
+    "verify": "npm run check && npm test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

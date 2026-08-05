@@ -1,0 +1,16 @@
+{
+  "name": "@red-cup-engineering/jsnode-package-check-service",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Checks one package directory against house package invariants and reports findings. Use when auditing a package's manifest and layout without changing it.",
+  "exports": "./src/check-jsnode-package.mjs",
+  "scripts": {
+    "check": "node --check src/check-jsnode-package.mjs",
+    "test": "node --test test/*.test.mjs",
+    "verify": "npm run check && npm test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

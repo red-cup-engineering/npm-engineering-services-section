@@ -1,0 +1,23 @@
+{
+  "name": "@red-cup-engineering/disk-package-observation-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Reads the packages present under a machine path by walking it and slicing to JSNode manifests. Use when charting what a disk tree contains against what a registry has published.",
+  "exports": "./src/observe-disk-packages.mjs",
+  "bin": {
+    "observe-disk-packages": "./scripts/observe-disk-packages.mjs"
+  },
+  "scripts": {
+    "check": "node --check src/observe-disk-packages.mjs && node --check scripts/observe-disk-packages.mjs",
+    "test": "node --test test/*.test.mjs",
+    "verify": "npm run check && npm test"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@red-cup-engineering/file-type-slicing-service": "1.0.0",
+    "@red-cup-engineering/path-walking-service": "1.0.0"
+  }
+}

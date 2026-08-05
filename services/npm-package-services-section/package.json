@@ -1,0 +1,7 @@
+{
+  "name": "@red-cup-engineering/npm-package-services-section",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Holds services and applications that observe, validate, normalize, and scaffold npm package.json manifests."
+}
