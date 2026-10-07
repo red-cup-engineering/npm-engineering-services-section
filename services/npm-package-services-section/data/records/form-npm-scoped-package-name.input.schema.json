@@ -1,0 +1,1 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","description":"- An NpmScopedPackageNameFormationRequest@1.","title":"formNpmScopedPackageNameInput","type":"object"}
