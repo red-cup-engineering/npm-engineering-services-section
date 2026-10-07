@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { dependenciesOf, dependentsOf, packageExists, searchPackages } from "../src/query-npm-registry.mjs";
+import { dependenciesOf, dependentsOf, interfacesOf, packageExists, searchPackages } from "../src/query-npm-registry.mjs";
 
 function option(name, { required = true } = {}) {
   const index = process.argv.indexOf(name);
@@ -17,8 +17,9 @@ const existsName = option("--exists", { required: false });
 const searchPattern = option("--search", { required: false });
 const dependsOnName = option("--depends-on", { required: false });
 const dependedByName = option("--depended-by", { required: false });
-const modes = [existsName, searchPattern, dependsOnName, dependedByName].filter((value) => value !== undefined);
-if (modes.length !== 1) throw new Error("supply exactly one of --exists, --search, --depends-on, --depended-by");
+const interfacesName = option("--interfaces-of", { required: false });
+const modes = [existsName, searchPattern, dependsOnName, dependedByName, interfacesName].filter((value) => value !== undefined);
+if (modes.length !== 1) throw new Error("supply exactly one of --exists, --search, --depends-on, --depended-by, --interfaces-of");
 
 if (existsName !== undefined) {
   const answer = await packageExists({ ...target, name: existsName });
@@ -31,6 +32,11 @@ if (existsName !== undefined) {
 } else if (dependsOnName !== undefined) {
   const version = option("--version", { required: false });
   const answer = await dependenciesOf({ ...target, name: dependsOnName, version });
+  process.stdout.write(`${JSON.stringify(answer, null, 2)}\n`);
+  if (!answer.found) process.exitCode = 1;
+} else if (interfacesName !== undefined) {
+  const version = option("--version", { required: false });
+  const answer = await interfacesOf({ ...target, name: interfacesName, version });
   process.stdout.write(`${JSON.stringify(answer, null, 2)}\n`);
   if (!answer.found) process.exitCode = 1;
 } else {

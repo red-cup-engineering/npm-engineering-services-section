@@ -1,7 +1,34 @@
 {
   "name": "@red-cup-engineering/npm-package-services-section",
   "version": "0.1.0",
-  "private": true,
   "type": "module",
-  "description": "Holds services and applications that observe, validate, normalize, and scaffold npm package.json manifests."
+  "description": "Holds services that read, admit, project, and apply explicit npm package carriers.",
+  "exports": {
+    "./apply-npm-package-lock-regeneration-command": "./scripts/apply-npm-package-lock-regeneration-command.mjs",
+    "./admit-npm-owner": "./scripts/admit-npm-owner.mjs",
+    "./project-npm-package-info": "./scripts/project-npm-package-info.mjs",
+    "./admit-npm-package-manifest": "./scripts/admit-npm-package-manifest.mjs",
+    "./read-npm-package-manifest": "./scripts/read-npm-package-manifest.mjs",
+    "./admit-npm-package-name-leaf": "./scripts/admit-npm-package-name-leaf.mjs",
+    "./pack-npm-package": "./scripts/pack-npm-package.mjs",
+    "./admit-npm-package-version": "./scripts/admit-npm-package-version.mjs",
+    "./form-npm-scoped-package-name": "./scripts/form-npm-scoped-package-name.mjs",
+    "./project-npm-package-manifest-from-jsnode-operation": "./scripts/project-npm-package-manifest-from-jsnode-operation.mjs",
+    "./project-npm-package-manifest-with-identity": "./scripts/project-npm-package-manifest-with-identity.mjs",
+    "./read-npm-package-directories": "./scripts/read-npm-package-directories.mjs",
+    "./read-npm-package-info": "./scripts/read-npm-package-info.mjs",
+    "./read-npm-package-set-info": "./scripts/read-npm-package-set-info.mjs"
+  },
+  "dependencies": {
+    "@red-cup-engineering/computer-filepath-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/execute-javascript-node-command-service": "workspace:*",
+    "@red-cup-engineering/file-services": "workspace:*",
+    "@red-cup-engineering/javascript-node-services-section": "workspace:*",
+    "@red-cup-engineering/json-services-section": "workspace:*",
+    "@red-cup-engineering/jsonl-services-section": "workspace:*",
+    "@red-cup-engineering/read-javascript-file-export-documentation-service": "workspace:*"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  }
 }
