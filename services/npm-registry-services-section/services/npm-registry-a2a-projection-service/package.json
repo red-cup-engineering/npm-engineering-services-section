@@ -24,7 +24,7 @@
   "devDependencies": {
     "@a2a-js/sdk": "1.0.0-beta.0",
     "@red-cup-engineering/a2a-rmn-part-service": "1.0.1",
-    "@red-cup-engineering/package-test-plan": "workspace:*",
+    "@red-cup-engineering/jsnode-package-services-section": "workspace:*",
     "@red-cup-engineering/rmn-semantic-conformance": "6.0.2"
   }
 }

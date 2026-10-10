@@ -21,6 +21,6 @@
     "@red-cup-engineering/path-walking-service": "1.0.0"
   },
   "devDependencies": {
-    "@red-cup-engineering/package-test-plan": "workspace:*"
+    "@red-cup-engineering/jsnode-package-services-section": "workspace:*"
   }
 }
