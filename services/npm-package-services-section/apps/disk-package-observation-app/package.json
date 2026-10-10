@@ -9,8 +9,8 @@
     "observe-disk-packages": "./scripts/observe-disk-packages.mjs"
   },
   "scripts": {
-    "check": "node --check src/observe-disk-packages.mjs && node --check scripts/observe-disk-packages.mjs",
-    "test": "node --test test/*.test.mjs",
+    "check": "check-package-syntax",
+    "test": "run-package-tests",
     "verify": "npm run check && npm test"
   },
   "engines": {
@@ -19,5 +19,8 @@
   "dependencies": {
     "@red-cup-engineering/file-type-slicing-service": "1.0.0",
     "@red-cup-engineering/path-walking-service": "1.0.0"
+  },
+  "devDependencies": {
+    "@red-cup-engineering/package-test-plan": "workspace:*"
   }
 }

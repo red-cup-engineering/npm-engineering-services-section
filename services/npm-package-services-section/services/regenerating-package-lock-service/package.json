@@ -9,11 +9,14 @@
   },
   "exports": "./scripts/regenerate-package-lock.mjs",
   "scripts": {
-    "check": "node --check scripts/regenerate-package-lock.mjs",
-    "test": "node --test test/*.test.mjs",
+    "check": "check-package-syntax",
+    "test": "run-package-tests",
     "verify": "npm run check && npm test"
   },
   "engines": {
     "node": ">=22"
+  },
+  "devDependencies": {
+    "@red-cup-engineering/package-test-plan": "workspace:*"
   }
 }

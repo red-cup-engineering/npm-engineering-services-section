@@ -10,10 +10,14 @@
     "discover-npm-packages": "./scripts/discover-npm-packages.mjs"
   },
   "scripts": {
-    "test": "node --test test/*.test.mjs",
-    "verify": "node --check src/discover-npm-packages.mjs && node --check scripts/discover-npm-packages.mjs && node --test test/*.test.mjs"
+    "test": "run-package-tests",
+    "verify": "node --check src/discover-npm-packages.mjs && node --check scripts/discover-npm-packages.mjs && node --test test/*.test.mjs",
+    "check": "check-package-syntax"
   },
   "engines": {
     "node": ">=22"
+  },
+  "devDependencies": {
+    "@red-cup-engineering/package-test-plan": "workspace:*"
   }
 }

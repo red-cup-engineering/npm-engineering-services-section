@@ -13,10 +13,14 @@
     "render-npm-registry-graph": "./scripts/render-registry-graph.mjs"
   },
   "scripts": {
-    "test": "node --test test/*.test.mjs",
-    "verify": "node --check src/package-registry.mjs && node --check src/registry-graph.mjs && node --check scripts/build-registry.mjs && node --check scripts/publish-local-package.mjs && node --check scripts/render-registry-graph.mjs && node --check scripts/serve-registry.mjs && node --test test/*.test.mjs"
+    "test": "run-package-tests",
+    "verify": "node --check src/package-registry.mjs && node --check src/registry-graph.mjs && node --check scripts/build-registry.mjs && node --check scripts/publish-local-package.mjs && node --check scripts/render-registry-graph.mjs && node --check scripts/serve-registry.mjs && node --test test/*.test.mjs",
+    "check": "check-package-syntax"
   },
   "engines": {
     "node": ">=22"
+  },
+  "devDependencies": {
+    "@red-cup-engineering/package-test-plan": "workspace:*"
   }
 }

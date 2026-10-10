@@ -6,11 +6,14 @@
   "description": "Pure ordered replacement of admitted npm package identity references in one source resource.",
   "exports": "./src/normalize-jsnode-package-identity-references.mjs",
   "scripts": {
-    "check": "node --check src/normalize-jsnode-package-identity-references.mjs",
-    "test": "node --test test/*.test.mjs",
+    "check": "check-package-syntax",
+    "test": "run-package-tests",
     "verify": "npm run check && npm test"
   },
   "engines": {
     "node": ">=22"
+  },
+  "devDependencies": {
+    "@red-cup-engineering/package-test-plan": "workspace:*"
   }
 }
