@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { runJavascriptNodeOperation } from "@red-cup-engineering/javascript-node-services-section/operation";
-import { admitTextFileCreationProjection } from "@red-cup-engineering/file-services/admit-text-file-creation-projection";
+import { admitTextFileCreationProjection } from "@red-cup-engineering/computer-file-engineering-services-section/admit-text-file-creation-projection";
 
 function requireSpecification(value) {
   if (value?.type !== "JsnodeOperationPackageSpecification" || value.version !== 1) {
