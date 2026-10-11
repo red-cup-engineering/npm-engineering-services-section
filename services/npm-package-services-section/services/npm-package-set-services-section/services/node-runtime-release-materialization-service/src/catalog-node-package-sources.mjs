@@ -2,7 +2,7 @@ import { readFile, realpath, stat } from "node:fs/promises";
 import { dirname, join, resolve } from "node:path";
 
 import { freezeJson } from "@red-cup-engineering/json-services-section";
-import { semanticIdOf } from "@red-cup-engineering/computer-content-engineering-services-section/semantic-content-identity";
+import { semanticIdOf } from "@red-cup-engineering/computer-content-address-engineering-services-section/semantic-content-identity";
 
 const RECEIPT_KIND = "node-package-source-catalog.receipt";
 
