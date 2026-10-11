@@ -1,0 +1,32 @@
+{
+  "name": "@red-cup-engineering/project-npm-package-lock-regeneration-command-service",
+  "version": "0.1.1",
+  "description": "Projects an explicit npm package directory and execution policy to the shell-free command which regenerates its package lock.",
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "exports": "./scripts/project-npm-package-lock-regeneration-command.mjs",
+  "bin": {
+    "project-npm-package-lock-regeneration-command": "./scripts/project-npm-package-lock-regeneration-command.mjs"
+  },
+  "files": [
+    "scripts",
+    "package.json",
+    "data/records/schema"
+  ],
+  "dependencies": {
+    "@red-cup-engineering/javascript-node-services-section": "workspace:*",
+    "@red-cup-engineering/json-services-section": "workspace:*"
+  },
+  "scripts": {
+    "check": "node --check scripts/project-npm-package-lock-regeneration-command.mjs",
+    "test": "node --test test/*.test.mjs",
+    "pack:dry-run": "npm pack --dry-run --ignore-scripts"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "devDependencies": {
+    "@red-cup-engineering/jsonl-services-section": "workspace:*"
+  }
+}

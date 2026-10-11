@@ -1,0 +1,27 @@
+{
+  "name": "@red-cup-engineering/node-runtime-container-image-context-materialization-service",
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Materialize verified Node runtime release catalogs into deterministic credential-free container image contexts.",
+  "license": "MIT",
+  "exports": "./src/materialize-context.mjs",
+  "bin": {
+    "materialize-node-runtime-container-image-context": "./scripts/materialize-context.mjs",
+    "verify-node-runtime-container-image-context": "./scripts/verify-context.mjs"
+  },
+  "files": [
+    "README.md",
+    "scripts",
+    "src"
+  ],
+  "dependencies": {
+    "@red-cup-engineering/cryptographic-computer-data-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/node-runtime-release-materialization-service": "workspace:*"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

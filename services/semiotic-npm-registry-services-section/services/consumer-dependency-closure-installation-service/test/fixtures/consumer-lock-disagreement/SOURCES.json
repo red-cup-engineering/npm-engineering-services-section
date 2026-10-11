@@ -1,0 +1,47 @@
+{
+  "purpose": "Byte-exact retained consumer inputs for an offline early-refusal regression, not installable repaired consumer trees",
+  "sources": {
+    "koios": {
+      "repository": "causeway-services/public-computer-services-section",
+      "sourceObject": "7efb855ad1bd3e3c85f79f2c6ec02cf22b1222ed",
+      "sourceObjectKind": "git-commit",
+      "sourceRoot": "services/web-services-section/services/media-services-section/services/koios-news"
+    },
+    "activitypub": {
+      "repository": "red-cup-engineering/web-services-section",
+      "sourceObject": "fd8d4ccc8a954d1905d656a32dae350965334d2d",
+      "sourceObjectKind": "git-commit",
+      "sourceRoot": "services/web-protocol-services-section/services/activitypub-services-section"
+    }
+  },
+  "files": [
+    {
+      "consumer": "koios",
+      "path": "koios/package.json",
+      "gitBlobSha": "eec8b2e8884149dd9b7d3c843b8514d236b9d3dd",
+      "sha256": "47a07ae2738a8315d385d5c2d8a9fcaa63b41358e1bcbfec9860b66952cb11ab",
+      "bytes": 1546
+    },
+    {
+      "consumer": "koios",
+      "path": "koios/package-lock.json",
+      "gitBlobSha": "3e9da1e19d46bb8b44c0fe1fedfee1c4a1ac253a",
+      "sha256": "13737d6d73d66b81296111765f09dd87172eb62077e667c3e6a593d34c3b1f74",
+      "bytes": 19616
+    },
+    {
+      "consumer": "activitypub",
+      "path": "activitypub/package.json",
+      "gitBlobSha": "52b0f01320b13af7e659ba700f5b9d6ec1430f6d",
+      "sha256": "de1edf31054c71f222cdc3c81eed5aa0cb3067dddb448609e91a87f900cc1e62",
+      "bytes": 4159
+    },
+    {
+      "consumer": "activitypub",
+      "path": "activitypub/package-lock.json",
+      "gitBlobSha": "03fbc3bb09e6ba370babc597d264c9567a605386",
+      "sha256": "ccf39f4ae43b95ea186fa8ec40eeccbbea22d6ccc77257dcacd678a2c35f9b51",
+      "bytes": 35042
+    }
+  ]
+}
