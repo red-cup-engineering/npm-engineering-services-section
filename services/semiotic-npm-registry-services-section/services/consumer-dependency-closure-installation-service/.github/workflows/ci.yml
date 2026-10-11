@@ -1,0 +1,41 @@
+name: Dependency closure CI
+
+on:
+  pull_request:
+  merge_group:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: dependency-closure-ci-${{ github.event_name }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check-and-test:
+    name: Dependency closure / check and test
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    defaults:
+      run:
+        shell: bash --noprofile --norc -e -o pipefail {0}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24.19.0'
+          package-manager-cache: false
+      - name: Record tested source and runtime
+        run: |
+          test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+          printf 'Tested commit: %s\n' "$GITHUB_SHA"
+          node --version
+          npm --version
+      # This package and its tests have no external dependencies. In particular,
+      # do not invoke the installer or supply registry credentials in this job.
+      - name: Check source syntax
+        run: npm run check
+      - name: Run every declared test and require a complete passing summary
+        run: npm test | tee "$RUNNER_TEMP/dependency-closure-tests.tap" /dev/stderr | node scripts/check-test-summary.mjs

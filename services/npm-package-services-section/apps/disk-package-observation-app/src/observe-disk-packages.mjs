@@ -1,13 +1,35 @@
 import { readFile } from "node:fs/promises";
-import { resolve } from "node:path";
+import { extname, resolve } from "node:path";
 
-import { walkPosixPaths } from "@red-cup-engineering/path-walking-service";
-import { sliceFilesByType } from "@red-cup-engineering/file-type-slicing-service";
+import { walkPosixPaths } from "@red-cup-engineering/computer-filepath-engineering-services-section/walk-posix-paths";
 
 const OBSERVATION_TYPE = "DiskPackageObservation";
 
 function isManifestPath(path) {
   return path === "package.json" || path.endsWith("/package.json");
+}
+
+function extensionOf(path) {
+  const basename = path.slice(path.lastIndexOf("/") + 1);
+  const extension = extname(basename);
+  return extension ? extension.slice(1).toLowerCase() : "";
+}
+
+// Group an already-observed file list by final, lowercased extension.
+function sliceFilesByType({ files }) {
+  const slices = {};
+  for (const file of files) {
+    const extension = extensionOf(file.path);
+    const slice = slices[extension] ?? (slices[extension] = { count: 0, bytes: 0, paths: [] });
+    slice.count += 1;
+    slice.bytes += file.bytes;
+    slice.paths.push(file.path);
+  }
+  for (const extension of Object.keys(slices)) {
+    slices[extension].paths.sort((left, right) => left.localeCompare(right));
+    slices[extension] = Object.freeze({ ...slices[extension], paths: Object.freeze(slices[extension].paths) });
+  }
+  return Object.freeze(slices);
 }
 
 // Composition over the two file-observation actuators: walk a machine path,
@@ -16,7 +38,7 @@ function isManifestPath(path) {
 // defect finding, never a silent skip.
 export async function observeDiskPackages({ root, excludes = [] } = {}) {
   const walk = await walkPosixPaths({ root, excludes });
-  const slice = sliceFilesByType({ files: walk.files });
+  const slices = sliceFilesByType({ files: walk.files });
 
   const packages = [];
   const defects = [];
@@ -53,6 +75,6 @@ export async function observeDiskPackages({ root, excludes = [] } = {}) {
     files: walk.files.length,
     directories: walk.directories,
     excluded: walk.excluded,
-    slices: slice.slices,
+    slices,
   });
 }

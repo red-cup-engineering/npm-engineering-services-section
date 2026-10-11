@@ -1,7 +1,9 @@
 #!/usr/bin/env node
+import { argument, repeatedArgument } from "@red-cup-engineering/javascript-node-services-section/argv";
 import { observeDiskPackages } from "../src/observe-disk-packages.mjs";
 
 const DEFAULT_EXCLUDES = ["node_modules", ".git"];
+const KNOWN_FLAGS = ["--root", "--exclude", "--no-default-excludes", "--format", "--strict"];
 
 function usage() {
   console.error(
@@ -11,20 +13,12 @@ function usage() {
 }
 
 const args = process.argv.slice(2);
-let root = null;
-let format = "ndjson";
-let useDefaultExcludes = true;
-let strict = false;
-const excludes = [];
-for (let i = 0; i < args.length; i += 1) {
-  const arg = args[i];
-  if (arg === "--root") root = args[++i];
-  else if (arg === "--exclude") excludes.push(args[++i]);
-  else if (arg === "--no-default-excludes") useDefaultExcludes = false;
-  else if (arg === "--format") format = args[++i];
-  else if (arg === "--strict") strict = true;
-  else usage();
-}
+for (const arg of args) if (arg.startsWith("--") && !KNOWN_FLAGS.includes(arg)) usage();
+const root = argument("--root", args);
+const format = argument("--format", args) ?? "ndjson";
+const useDefaultExcludes = !args.includes("--no-default-excludes");
+const strict = args.includes("--strict");
+const excludes = repeatedArgument("--exclude", args);
 if (!root || !["ndjson", "json", "packages"].includes(format)) usage();
 if (useDefaultExcludes) excludes.push(...DEFAULT_EXCLUDES);
 

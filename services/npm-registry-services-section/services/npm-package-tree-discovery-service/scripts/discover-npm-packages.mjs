@@ -1,26 +1,14 @@
 #!/usr/bin/env node
 import { writeFile } from "node:fs/promises";
 import { discoverPackages, loadIgnoreDirectoryNames } from "../src/discover-npm-packages.mjs";
+import { argument, repeatedArgument, requiredArgument } from "@red-cup-engineering/javascript-node-services-section/argv";
 
-function option(name, { required = true } = {}) {
-  const index = process.argv.indexOf(name);
-  if (index < 0 || !process.argv[index + 1]) {
-    if (!required) return undefined;
-    throw new Error(`${name} is required`);
-  }
-  return process.argv[index + 1];
-}
-
-function repeated(name) {
-  return process.argv.flatMap((value, index) => (value === name && process.argv[index + 1] ? [process.argv[index + 1]] : []));
-}
-
-const root = option("--root");
-const ignoreFiles = repeated("--ignore-file");
+const root = requiredArgument("--root");
+const ignoreFiles = repeatedArgument("--ignore-file");
 const ignoreDirectoryNames = (await Promise.all(ignoreFiles.map((path) => loadIgnoreDirectoryNames(path)))).flat();
 const report = await discoverPackages({ root, ignoreDirectoryNames });
-const format = option("--format", { required: false }) ?? "summary";
-const output = option("--output", { required: false });
+const format = argument("--format") ?? "summary";
+const output = argument("--output");
 
 if (report.collisions.length > 0) {
   for (const collision of report.collisions) {

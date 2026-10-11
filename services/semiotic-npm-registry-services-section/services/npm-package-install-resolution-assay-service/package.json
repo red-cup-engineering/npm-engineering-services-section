@@ -1,0 +1,29 @@
+{
+  "name": "@red-cup-engineering/npm-package-install-resolution-assay-service",
+  "version": "0.1.0",
+  "description": "Installs selected exact npm package surfaces into isolated temporary consumers with lifecycle scripts disabled, reporting dependency-resolution/install-closure receipts without claiming runtime correctness.",
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "exports": "./src/npm-package-install-resolution-assay.mjs",
+  "bin": {
+    "assay-npm-package-install-resolution": "scripts/assay-npm-package-install-resolution.mjs"
+  },
+  "files": [
+    "src",
+    "scripts",
+    "package.json",
+    "README.md"
+  ],
+  "scripts": {
+    "check": "node --check src/npm-package-install-resolution-assay.mjs && node --check scripts/assay-npm-package-install-resolution.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
