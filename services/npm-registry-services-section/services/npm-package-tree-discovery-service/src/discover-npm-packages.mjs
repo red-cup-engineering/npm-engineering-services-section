@@ -50,8 +50,8 @@ function parseIgnoreFileText(text) {
 
 // Walks `root` for package.json files and sorts every one it reads into
 // exactly one of two piles: `found` (a scoped, sovereign, exact-version
-// manifest — an eligible build-registry release candidate) or `skipped`
-// (a directory or manifest this walk deliberately declined, with why).
+// manifest) or `skipped` (a directory or manifest this walk deliberately
+// declined, with why).
 // This never packs, never resolves versions, never talks to a registry —
 // discovery answers "what is here", nothing more.
 export async function discoverPackages({
@@ -141,7 +141,7 @@ export async function discoverPackages({
 
   return Object.freeze({
     type: "NpmPackageTreeDiscoveryReport",
-    version: 1,
+    version: 2,
     root: base,
     found: Object.freeze(found.map((row) => Object.freeze(row))),
     skipped: Object.freeze(skipped.map((row) => Object.freeze(row))),

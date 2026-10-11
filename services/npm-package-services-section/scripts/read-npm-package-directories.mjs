@@ -6,7 +6,7 @@ import { selectNpmPackageManifestPaths } from "@red-cup-engineering/computer-fil
 import { walkPosixPaths } from "@red-cup-engineering/computer-filepath-engineering-services-section/walk-posix-paths";
 import { pathParent as projectFilepathDirectory } from "@red-cup-engineering/computer-filepath-engineering-services-section/posix";
 
-import { projectRegularFilePaths } from "@red-cup-engineering/file-services/project-regular-file-paths";
+import { projectRegularFilePaths } from "@red-cup-engineering/computer-file-engineering-services-section/project-regular-file-paths";
 import { resolve } from "node:path";
 
 import operationInputSchema from "../data/records/read-npm-package-directories.input.schema.json" with { type: "json" };

@@ -1,5 +1,26 @@
 {
   "name": "@red-cup-engineering/npm-registry-services-section",
-  "private": true,
-  "description": "Holds the services for npm registries. Use when working on the private npm registry or reading any npm registry's packages, versions, and dependencies."
+  "version": "0.1.0",
+  "description": "Holds the services for npm registries. Use when working on the private npm registry or reading any npm registry's packages, versions, and dependencies.",
+  "dependencies": {
+    "@red-cup-engineering/computer-file-engineering-services-section": "workspace:*",
+    "@red-cup-engineering/inspect-installed-npm-package-service": "workspace:*",
+    "@red-cup-engineering/javascript-node-services-section": "workspace:*",
+    "@red-cup-engineering/json-services-section": "workspace:*",
+    "@red-cup-engineering/jsonl-services-section": "workspace:*",
+    "@red-cup-engineering/read-javascript-file-export-documentation-service": "workspace:*"
+  },
+  "exports": {
+    "./check-npm-registry-package-installations": "./scripts/check-npm-registry-package-installations.mjs",
+    "./npm-artifact-integrity-service": "./scripts/npm-artifact-integrity-service.mjs",
+    "./read-npm-registry-resource": "./scripts/read-npm-registry-resource.mjs",
+    "./select-npm-registry-packages": "./scripts/select-npm-registry-packages.mjs"
+  },
+  "scripts": {
+    "test": "run-package-tests",
+    "check": "check-package-syntax"
+  },
+  "devDependencies": {
+    "@red-cup-engineering/jsnode-package-services-section": "workspace:*"
+  }
 }

@@ -14,8 +14,8 @@ async function manifest(path, body) {
 test("finds nested scoped exact-version packages and reports what it declined, with reasons", async () => {
   const root = await mkdtemp(join(tmpdir(), "npm-tree-discovery-"));
   try {
-    await manifest(join(root, "services", "alpha"), { name: "@customer/alpha", version: "1.0.0" });
-    await manifest(join(root, "services", "alpha", "services", "beta"), { name: "@customer/beta", version: "0.0.1" });
+    await manifest(join(root, "services", "alpha"), { name: "@customer/alpha", version: "1.0.0", private: false });
+    await manifest(join(root, "services", "alpha", "services", "beta"), { name: "@customer/beta", version: "0.0.1", private: false });
     await manifest(join(root, "services", "unversioned"), { name: "@customer/unversioned" });
     await manifest(join(root, "services", "range-version"), { name: "@customer/range-version", version: "^1.0.0" });
     await manifest(join(root, "services", "unscoped"), { name: "unscoped" });
@@ -50,8 +50,8 @@ test("finds nested scoped exact-version packages and reports what it declined, w
 test("reports a name@version collision across two different directories rather than silently picking one", async () => {
   const root = await mkdtemp(join(tmpdir(), "npm-tree-discovery-collision-"));
   try {
-    await manifest(join(root, "one"), { name: "@customer/dup", version: "1.0.0" });
-    await manifest(join(root, "two"), { name: "@customer/dup", version: "1.0.0" });
+    await manifest(join(root, "one"), { name: "@customer/dup", version: "1.0.0", private: false });
+    await manifest(join(root, "two"), { name: "@customer/dup", version: "1.0.0", private: false });
     const report = await discoverPackages({ root });
     assert.equal(report.found.length, 2);
     assert.equal(report.collisions.length, 1);
@@ -65,8 +65,8 @@ test("reports a name@version collision across two different directories rather t
 test("never walks into a registry's own prior output territory", async () => {
   const root = await mkdtemp(join(tmpdir(), "npm-tree-discovery-registry-output-"));
   try {
-    await manifest(join(root, "data", "package-registry-v2", "tarballs", "unpacked"), { name: "@customer/packed", version: "1.0.0" });
-    await manifest(join(root, "services", "real"), { name: "@customer/real", version: "1.0.0" });
+    await manifest(join(root, "data", "package-registry-v2", "tarballs", "unpacked"), { name: "@customer/packed", version: "1.0.0", private: false });
+    await manifest(join(root, "services", "real"), { name: "@customer/real", version: "1.0.0", private: false });
     const report = await discoverPackages({ root });
     assert.deepEqual(report.found.map((row) => row.name), ["@customer/real"]);
     assert.ok(report.skipped.some((row) => row.reason === "registry-output-territory"));
@@ -78,8 +78,8 @@ test("never walks into a registry's own prior output territory", async () => {
 test("never walks into a Claude Code git-worktree checkout, which duplicates whatever it was cut from", async () => {
   const root = await mkdtemp(join(tmpdir(), "npm-tree-discovery-worktree-"));
   try {
-    await manifest(join(root, "services", "real"), { name: "@customer/real", version: "1.0.0" });
-    await manifest(join(root, ".claude", "worktrees", "some-branch", "services", "real"), { name: "@customer/real", version: "1.0.0" });
+    await manifest(join(root, "services", "real"), { name: "@customer/real", version: "1.0.0", private: false });
+    await manifest(join(root, ".claude", "worktrees", "some-branch", "services", "real"), { name: "@customer/real", version: "1.0.0", private: false });
     const report = await discoverPackages({ root });
     assert.equal(report.found.length, 1);
     assert.equal(report.collisions.length, 0);
@@ -92,9 +92,9 @@ test("never walks into a Claude Code git-worktree checkout, which duplicates wha
 test("honours an extra ignored directory name and an extra ignored path segment", async () => {
   const root = await mkdtemp(join(tmpdir(), "npm-tree-discovery-ignore-"));
   try {
-    await manifest(join(root, "quarantine", "inner"), { name: "@customer/quarantined", version: "1.0.0" });
-    await manifest(join(root, "staging", "segmented", "inner"), { name: "@customer/segmented", version: "1.0.0" });
-    await manifest(join(root, "services", "real"), { name: "@customer/real", version: "1.0.0" });
+    await manifest(join(root, "quarantine", "inner"), { name: "@customer/quarantined", version: "1.0.0", private: false });
+    await manifest(join(root, "staging", "segmented", "inner"), { name: "@customer/segmented", version: "1.0.0", private: false });
+    await manifest(join(root, "services", "real"), { name: "@customer/real", version: "1.0.0", private: false });
     const report = await discoverPackages({
       root,
       ignoreDirectoryNames: ["quarantine"],

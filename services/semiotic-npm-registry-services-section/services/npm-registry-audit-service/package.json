@@ -1,0 +1,31 @@
+{
+  "name": "@red-cup-engineering/npm-registry-audit-service",
+  "version": "0.1.6",
+  "description": "Runs the live-registry dependency audit: derives internal scopes from the Verdaccio config that is already the registry's own access-control authority, lists the live catalog, and gates on unresolved-dependency defects. Replaces the deleted root Makefile's registry-audit target, which hand-copied a scope list that drifted out of sync with config.yaml.",
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "exports": "./src/run-npm-registry-audit.mjs",
+  "bin": {
+    "run-npm-registry-audit": "scripts/run-npm-registry-audit.mjs"
+  },
+  "files": [
+    "src",
+    "scripts",
+    "package.json",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.mjs"
+  },
+  "dependencies": {
+    "@red-cup-engineering/npm-registry-graph-services-section": "workspace:*"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
