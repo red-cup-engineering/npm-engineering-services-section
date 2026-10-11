@@ -1,0 +1,31 @@
+{
+  "name": "@red-cup-engineering/inspect-installed-npm-package-service",
+  "version": "0.3.0",
+  "description": "Reads the identity, declared faces, JavaScript syntax, and reachable import closure of one installed npm package.",
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "exports": "./scripts/inspect-installed-npm-package.mjs",
+  "bin": {
+    "inspect-installed-npm-package": "scripts/inspect-installed-npm-package.mjs"
+  },
+  "files": [
+    "scripts",
+    "src",
+    "package.json"
+  ],
+  "dependencies": {
+    "@red-cup-engineering/javascript-file-import-services-section": "workspace:*",
+    "@red-cup-engineering/javascript-node-services-section": "workspace:*",
+    "@red-cup-engineering/json-services-section": "workspace:*",
+    "@red-cup-engineering/jsonl-services-section": "workspace:*",
+    "@red-cup-engineering/read-javascript-file-export-documentation-service": "workspace:*"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "pack:dry-run": "npm pack --dry-run --ignore-scripts"
+  },
+  "engines": {
+    "node": ">=24"
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "@red-cup-engineering/npm-package-manifest-normalization-service",
+  "version": "0.1.0",
+  "description": "Normalizes one npm package manifest without inventing package identity or version values.",
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "exports": {
+    ".": "./src/normalize-jsnode-package-manifest.mjs",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "normalize-jsnode-package-manifest": "scripts/normalize-jsnode-package-manifest.mjs"
+  },
+  "files": [
+    "src",
+    "scripts",
+    "package.json"
+  ],
+  "dependencies": {
+    "@red-cup-engineering/json-services-section": "workspace:*",
+    "@red-cup-engineering/npm-package-services-section": "workspace:*"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "check": "node --check src/normalize-jsnode-package-manifest.mjs && node --check scripts/normalize-jsnode-package-manifest.mjs && node --check src/stream-text.mjs && node --check src/normalize-npm-package-lifecycle-scripts.mjs && node --check scripts/normalize-npm-package-lifecycle-scripts.mjs && node --check src/apply-npm-package-manifest-identity.mjs && node --check scripts/apply-npm-package-manifest-identity.mjs && node --check src/normalize-pnpm-engine-declaration.mjs && node --check scripts/normalize-pnpm-engine-declaration.mjs && node --check src/normalize-pnpm-package-manager-declaration.mjs && node --check scripts/normalize-pnpm-package-manager-declaration.mjs",
+    "test": "node --test test/*.test.mjs",
+    "pack:dry-run": "npm pack --dry-run --ignore-scripts"
+  }
+}

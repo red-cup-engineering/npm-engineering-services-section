@@ -4,8 +4,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
-import { resolvePackageRegistryRequest } from "../src/package-registry.mjs";
-import { deriveRegistryGraph, groupRegistryGraphDefects, renderRegistryGraphDot } from "../src/registry-graph.mjs";
+import { deriveRegistryGraph, groupRegistryGraphDefects, renderRegistryGraphDot } from "@red-cup-engineering/npm-registry-graph-services-section";
 
 // The sandbox running these tests refuses TCP connections to listeners the
 // test itself opens, so the HTTP face is exercised through an injected fetch
@@ -13,10 +12,19 @@ import { deriveRegistryGraph, groupRegistryGraphDefects, renderRegistryGraphDot 
 // percent-encoding law a socket would see, minus the socket.
 function registryFetch(registryDirectory) {
   return async (url) => {
-    const target = await resolvePackageRegistryRequest({ registryDirectory, requestPath: new URL(url).pathname });
-    if (target === null) return { ok: false, status: 404 };
-    const body = await readFile(target);
-    return { ok: true, status: 200, arrayBuffer: async () => body };
+    const name = decodeURIComponent(new URL(url).pathname.replace(/^\/+/, ""));
+    if (name === "registry-receipt.json") {
+      const body = await readFile(join(registryDirectory, "registry-receipt.json"));
+      return { ok: true, status: 200, arrayBuffer: async () => body };
+    }
+    if (!name.startsWith("@")) return { ok: false, status: 404 };
+    try {
+      const body = await readFile(join(registryDirectory, "metadata", `${encodeURIComponent(name)}.json`));
+      return { ok: true, status: 200, arrayBuffer: async () => body };
+    } catch (error) {
+      if (error?.code === "ENOENT") return { ok: false, status: 404 };
+      throw error;
+    }
   };
 }
 
@@ -161,7 +169,7 @@ test("derives the same graph over the registry HTTP face as from disk", async ()
     await assert.rejects(deriveRegistryGraph({}), /exactly one of registryRoot/u);
     await assert.rejects(
       deriveRegistryGraph({ registryUrl: "http://registry.example.test/absent/", fetchImplementation: registryFetch(root) }),
-      /does not publish registry-receipt\.json/u,
+      /registry has no build receipt/u,
     );
   } finally {
     await rm(root, { recursive: true, force: true });
