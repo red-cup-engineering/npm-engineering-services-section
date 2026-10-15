@@ -1,6 +1,6 @@
 {
   "name": "@red-cup-engineering/npm-package-services-section",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "description": "Holds services that read, admit, project, and apply explicit npm package carriers.",
   "exports": {
