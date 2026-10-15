@@ -27,7 +27,7 @@
     "node": ">=24"
   },
   "devDependencies": {
-    "@red-cup-engineering/jsnode-package-services-section": "workspace:*",
-    "@red-cup-engineering/jsonl-services-section": "workspace:*"
+    "@red-cup-engineering/jsonl-services-section": "workspace:*",
+    "@red-cup-engineering/jsnode-package-services-section": "workspace:*"
   }
 }
