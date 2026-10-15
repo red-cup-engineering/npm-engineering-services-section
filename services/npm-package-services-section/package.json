@@ -1,6 +1,6 @@
 {
   "name": "@red-cup-engineering/npm-package-services-section",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Holds services that read, admit, project, and apply explicit npm package carriers.",
   "exports": {
@@ -20,15 +20,44 @@
     "./read-npm-package-set-info": "./scripts/read-npm-package-set-info.mjs"
   },
   "dependencies": {
-    "@red-cup-engineering/computer-filepath-engineering-services-section": "workspace:*",
-    "@red-cup-engineering/execute-javascript-node-command-service": "workspace:*",
-    "@red-cup-engineering/computer-file-engineering-services-section": "workspace:*",
-    "@red-cup-engineering/javascript-node-services-section": "workspace:*",
-    "@red-cup-engineering/json-services-section": "workspace:*",
-    "@red-cup-engineering/jsonl-services-section": "workspace:*",
-    "@red-cup-engineering/read-javascript-file-export-documentation-service": "workspace:*"
+    "@red-cup-engineering/computer-filepath-engineering-services-section": "0.1.0",
+    "@red-cup-engineering/execute-javascript-node-command-service": "0.3.0",
+    "@red-cup-engineering/computer-file-engineering-services-section": "0.4.0",
+    "@red-cup-engineering/javascript-node-services-section": "0.3.1",
+    "@red-cup-engineering/json-services-section": "0.4.0",
+    "@red-cup-engineering/jsonl-services-section": "0.1.0",
+    "@red-cup-engineering/read-javascript-file-export-documentation-service": "0.1.4"
   },
   "scripts": {
     "test": "node --test test/*.test.mjs"
-  }
+  },
+  "private": false,
+  "files": [
+    "package.json",
+    "README*",
+    "LICENSE*",
+    "scripts",
+    "apps",
+    "!apps/disk-package-observation-app/**",
+    "data/records/read-npm-package-set-info.input.schema.json",
+    "data/records/read-npm-package-set-info.output.schema.json",
+    "data/records/read-npm-package-info.input.schema.json",
+    "data/records/read-npm-package-info.output.schema.json",
+    "data/records/read-npm-package-manifest.input.schema.json",
+    "data/records/read-npm-package-manifest.output.schema.json",
+    "data/records/form-npm-scoped-package-name.input.schema.json",
+    "data/records/form-npm-scoped-package-name.output.schema.json",
+    "data/records/admit-npm-package-name-leaf.input.schema.json",
+    "data/records/admit-npm-package-name-leaf.output.schema.json",
+    "data/records/admit-npm-owner.input.schema.json",
+    "data/records/admit-npm-owner.output.schema.json",
+    "data/records/project-npm-package-info.input.schema.json",
+    "data/records/project-npm-package-info.output.schema.json",
+    "data/records/read-npm-package-directories.input.schema.json",
+    "data/records/read-npm-package-directories.output.schema.json",
+    "data/records/project-npm-package-manifest-with-identity.input.schema.json",
+    "data/records/project-npm-package-manifest-with-identity.output.schema.json",
+    "data/records/apply-npm-package-lock-regeneration-command.input.schema.json",
+    "data/records/apply-npm-package-lock-regeneration-command.output.schema.json"
+  ]
 }

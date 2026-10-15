@@ -18,8 +18,8 @@
     "package.json"
   ],
   "dependencies": {
-    "@red-cup-engineering/json-services-section": "workspace:*",
-    "@red-cup-engineering/npm-package-services-section": "workspace:*"
+    "@red-cup-engineering/json-services-section": "0.4.0",
+    "@red-cup-engineering/npm-package-services-section": "0.1.1"
   },
   "engines": {
     "node": ">=24"
