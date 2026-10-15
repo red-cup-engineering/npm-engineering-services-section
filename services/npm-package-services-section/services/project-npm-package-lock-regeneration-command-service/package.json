@@ -19,14 +19,15 @@
     "@red-cup-engineering/json-services-section": "workspace:*"
   },
   "scripts": {
-    "check": "node --check scripts/project-npm-package-lock-regeneration-command.mjs",
-    "test": "node --test test/*.test.mjs",
+    "check": "check-package-syntax",
+    "test": "run-package-tests",
     "pack:dry-run": "npm pack --dry-run --ignore-scripts"
   },
   "engines": {
     "node": ">=24"
   },
   "devDependencies": {
-    "@red-cup-engineering/jsonl-services-section": "workspace:*"
+    "@red-cup-engineering/jsonl-services-section": "workspace:*",
+    "@red-cup-engineering/jsnode-package-services-section": "workspace:*"
   }
 }

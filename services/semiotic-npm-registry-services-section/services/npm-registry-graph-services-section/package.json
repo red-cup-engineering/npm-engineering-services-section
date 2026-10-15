@@ -19,7 +19,8 @@
     "package.json"
   ],
   "scripts": {
-    "test": "node --test test/*.test.mjs"
+    "test": "run-package-tests",
+    "check": "check-package-syntax"
   },
   "engines": {
     "node": ">=22"
@@ -28,5 +29,8 @@
     "@red-cup-engineering/cryptographic-computer-data-engineering-services-section": "workspace:*",
     "@red-cup-engineering/npm-registry-query-service": "workspace:*",
     "semver": "^7.8.5"
+  },
+  "devDependencies": {
+    "@red-cup-engineering/jsnode-package-services-section": "workspace:*"
   }
 }
