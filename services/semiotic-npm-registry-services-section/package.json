@@ -10,9 +10,13 @@
     "./released-manifest": "./scripts/released-manifest.mjs"
   },
   "scripts": {
-    "test": "node --test test/*.test.mjs"
+    "test": "run-package-tests",
+    "check": "check-package-syntax"
   },
   "dependencies": {
     "@red-cup-engineering/npm-registry-services-section": "workspace:*"
+  },
+  "devDependencies": {
+    "@red-cup-engineering/jsnode-package-services-section": "workspace:*"
   }
 }

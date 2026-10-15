@@ -29,6 +29,10 @@
     "@red-cup-engineering/read-javascript-file-export-documentation-service": "workspace:*"
   },
   "scripts": {
-    "test": "node --test test/*.test.mjs"
+    "test": "run-package-tests",
+    "check": "check-package-syntax"
+  },
+  "devDependencies": {
+    "@red-cup-engineering/jsnode-package-services-section": "workspace:*"
   }
 }

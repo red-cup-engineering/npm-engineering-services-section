@@ -25,8 +25,11 @@
     "node": ">=24"
   },
   "scripts": {
-    "check": "node --check src/normalize-jsnode-package-manifest.mjs && node --check scripts/normalize-jsnode-package-manifest.mjs && node --check src/stream-text.mjs && node --check src/normalize-npm-package-lifecycle-scripts.mjs && node --check scripts/normalize-npm-package-lifecycle-scripts.mjs && node --check src/apply-npm-package-manifest-identity.mjs && node --check scripts/apply-npm-package-manifest-identity.mjs && node --check src/normalize-pnpm-engine-declaration.mjs && node --check scripts/normalize-pnpm-engine-declaration.mjs && node --check src/normalize-pnpm-package-manager-declaration.mjs && node --check scripts/normalize-pnpm-package-manager-declaration.mjs",
-    "test": "node --test test/*.test.mjs",
+    "check": "check-package-syntax",
+    "test": "run-package-tests",
     "pack:dry-run": "npm pack --dry-run --ignore-scripts"
+  },
+  "devDependencies": {
+    "@red-cup-engineering/jsnode-package-services-section": "workspace:*"
   }
 }
