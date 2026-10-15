@@ -5,14 +5,9 @@
   "description": "Holds services that read, admit, project, and apply explicit npm package carriers.",
   "exports": {
     "./apply-npm-package-lock-regeneration-command": "./scripts/apply-npm-package-lock-regeneration-command.mjs",
-    "./admit-npm-owner": "./scripts/admit-npm-owner.mjs",
     "./project-npm-package-info": "./scripts/project-npm-package-info.mjs",
-    "./admit-npm-package-manifest": "./scripts/admit-npm-package-manifest.mjs",
     "./read-npm-package-manifest": "./scripts/read-npm-package-manifest.mjs",
-    "./admit-npm-package-name-leaf": "./scripts/admit-npm-package-name-leaf.mjs",
     "./pack-npm-package": "./scripts/pack-npm-package.mjs",
-    "./admit-npm-package-version": "./scripts/admit-npm-package-version.mjs",
-    "./form-npm-scoped-package-name": "./scripts/form-npm-scoped-package-name.mjs",
     "./project-npm-package-manifest-from-jsnode-operation": "./scripts/project-npm-package-manifest-from-jsnode-operation.mjs",
     "./project-npm-package-manifest-with-identity": "./scripts/project-npm-package-manifest-with-identity.mjs",
     "./read-npm-package-directories": "./scripts/read-npm-package-directories.mjs",
@@ -26,7 +21,12 @@
     "@red-cup-engineering/javascript-node-services-section": "workspace:*",
     "@red-cup-engineering/json-services-section": "workspace:*",
     "@red-cup-engineering/jsonl-services-section": "workspace:*",
-    "@red-cup-engineering/read-javascript-file-export-documentation-service": "workspace:*"
+    "@red-cup-engineering/read-javascript-file-export-documentation-service": "workspace:*",
+    "@red-cup-engineering/npm-owner-admission-service": "0.2.0",
+    "@red-cup-engineering/npm-package-name-leaf-admission-service": "0.3.0",
+    "@red-cup-engineering/npm-package-version-admission-service": "0.2.0",
+    "@red-cup-engineering/npm-scoped-package-name-formation-service": "0.3.0",
+    "@red-cup-engineering/npm-package-manifest-admission-service": "0.3.0"
   },
   "scripts": {
     "test": "run-package-tests",
@@ -34,5 +34,10 @@
   },
   "devDependencies": {
     "@red-cup-engineering/jsnode-package-services-section": "workspace:*"
-  }
+  },
+  "files": [
+    "scripts",
+    "data",
+    "test"
+  ]
 }

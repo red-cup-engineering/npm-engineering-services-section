@@ -1,6 +1,6 @@
 import { normalizeNpmPackageLifecycleScripts } from "./normalize-npm-package-lifecycle-scripts.mjs";
 import { applyNpmPackageManifestIdentity } from "./apply-npm-package-manifest-identity.mjs";
-import { admitNpmPackageVersion } from "@red-cup-engineering/npm-package-services-section/admit-npm-package-version";
+import { admitNpmPackageVersion } from "@red-cup-engineering/npm-package-version-admission-service";
 import { normalizePnpmEngineDeclaration } from "./normalize-pnpm-engine-declaration.mjs";
 import { normalizePnpmPackageManagerDeclaration } from "./normalize-pnpm-package-manager-declaration.mjs";
 

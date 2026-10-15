@@ -3,7 +3,7 @@ import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
 
-import { admitNpmPackageVersion } from "../scripts/admit-npm-package-version.mjs";
+import { admitNpmPackageVersion } from "@red-cup-engineering/npm-package-version-admission-service";
 
 test("admits exact numeric and prerelease SemVer versions unchanged", () => {
   assert.equal(admitNpmPackageVersion("12.3.0"), "12.3.0");
@@ -18,7 +18,7 @@ test("refuses missing, inferred, padded, ranged, and malformed versions", () => 
 });
 
 test("the command maps the same admission over NDJSON", () => {
-  const result = spawnSync(process.execPath, [fileURLToPath(new URL("../scripts/admit-npm-package-version.mjs", import.meta.url))], {
+  const result = spawnSync(process.execPath, [fileURLToPath(new URL("@red-cup-engineering/npm-package-version-admission-service", import.meta.url))], {
     input: `${JSON.stringify("12.3.0")}\n`,
     encoding: "utf8",
   });

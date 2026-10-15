@@ -1,3 +1,4 @@
+import { freezeJson } from "@red-cup-engineering/json-services-section/freeze-json";
 /**
  * Restored 2026-09-21 as this service's own module (recovered from the
  * pnpm-engine-declaration-normalization-service package deleted 2026-08-14,
@@ -9,13 +10,8 @@
  * scripts/normalize-pnpm-engine-declaration.mjs -- see
  * normalize-npm-package-lifecycle-scripts.mjs's header comment for why.
  */
-import { admitNpmPackageManifest } from "@red-cup-engineering/npm-package-services-section/admit-npm-package-manifest";
+import { admitNpmPackageManifest } from "@red-cup-engineering/npm-package-manifest-admission-service";
 
-function deepFreezeJson(value) {
-  if (value === null || typeof value !== "object") return value;
-  for (const key of Object.keys(value)) deepFreezeJson(value[key]);
-  return Object.freeze(value);
-}
 
 function admittedManifestOf(manifest) {
   return admitNpmPackageManifest({ type: "NpmPackageManifestCandidate", version: 1, manifest }).manifest;
@@ -26,7 +22,7 @@ export function normalizePnpmEngineDeclaration(manifest) {
   if (!admittedManifest.engines?.pnpm) return admittedManifest;
   const { pnpm: _removedPnpmEngine, ...engines } = admittedManifest.engines;
   const { engines: _previousEngines, ...manifestWithoutEngines } = admittedManifest;
-  return deepFreezeJson(Object.keys(engines).length === 0
+  return freezeJson(Object.keys(engines).length === 0
     ? manifestWithoutEngines
     : { ...manifestWithoutEngines, engines });
 }

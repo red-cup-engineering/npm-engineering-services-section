@@ -3,7 +3,7 @@ import { spawnSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import test from "node:test";
 
-import { admitNpmPackageNameLeaf } from "../scripts/admit-npm-package-name-leaf.mjs";
+import { admitNpmPackageNameLeaf } from "@red-cup-engineering/npm-package-name-leaf-admission-service";
 
 test("admits a valid lowercase npm package-name leaf", () => {
   assert.equal(admitNpmPackageNameLeaf("thing-service"), "thing-service");
@@ -16,7 +16,7 @@ test("refuses package-name leaves that would require repair", () => {
 });
 
 test("the command maps the same admission over NDJSON", () => {
-  const result = spawnSync(process.execPath, [fileURLToPath(new URL("../scripts/admit-npm-package-name-leaf.mjs", import.meta.url))], {
+  const result = spawnSync(process.execPath, [fileURLToPath(new URL("@red-cup-engineering/npm-package-name-leaf-admission-service", import.meta.url))], {
     input: `${JSON.stringify("thing-service")}\n`,
     encoding: "utf8",
   });

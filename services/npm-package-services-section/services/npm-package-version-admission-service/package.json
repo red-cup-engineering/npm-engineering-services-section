@@ -1,0 +1,22 @@
+{
+  "name": "@red-cup-engineering/npm-package-version-admission-service",
+  "version": "0.2.0",
+  "type": "module",
+  "private": false,
+  "description": "Admits one explicit exact SemVer npm package version.",
+  "exports": {
+    ".": "./src/admit-npm-package-version.mjs",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src"
+  ],
+  "engines": {
+    "node": ">=24.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/red-cup-engineering/computer-code-engineering-services-section.git",
+    "directory": "services/javascript-engineering-services-section/services/javascript-node-services-section/services/jsnode-packaging-services-section/services/npm-services-section/services/npm-package-services-section/services/npm-package-version-admission-service"
+  }
+}

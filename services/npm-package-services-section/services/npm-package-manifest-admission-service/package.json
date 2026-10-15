@@ -1,0 +1,28 @@
+{
+  "name": "@red-cup-engineering/npm-package-manifest-admission-service",
+  "version": "0.3.0",
+  "type": "module",
+  "private": false,
+  "description": "Admits one npm package manifest candidate without changing its fields.",
+  "exports": {
+    ".": "./src/admit-npm-package-manifest.mjs",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src"
+  ],
+  "engines": {
+    "node": ">=24.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/red-cup-engineering/computer-code-engineering-services-section.git",
+    "directory": "services/javascript-engineering-services-section/services/javascript-node-services-section/services/jsnode-packaging-services-section/services/npm-services-section/services/npm-package-services-section/services/npm-package-manifest-admission-service"
+  },
+  "dependencies": {
+    "@red-cup-engineering/npm-package-name-leaf-admission-service": "0.3.0",
+    "@red-cup-engineering/npm-package-version-admission-service": "0.2.0",
+    "@red-cup-engineering/npm-scoped-package-name-formation-service": "0.3.0",
+    "@red-cup-engineering/json-services-section": "0.4.0"
+  }
+}

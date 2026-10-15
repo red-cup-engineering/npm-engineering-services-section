@@ -1,3 +1,4 @@
+import { freezeJson } from "@red-cup-engineering/json-services-section/freeze-json";
 /**
  * Restored 2026-09-21 as this service's own module (recovered from the
  * npm-package-lifecycle-scripts-normalization-service package deleted
@@ -11,13 +12,8 @@
  * (data/records/house-architecture-norms.json, "hull-never-imports-kernel"). The export below
  * keeps its exact name and behavior.
  */
-import { admitNpmPackageManifest } from "@red-cup-engineering/npm-package-services-section/admit-npm-package-manifest";
+import { admitNpmPackageManifest } from "@red-cup-engineering/npm-package-manifest-admission-service";
 
-function deepFreezeJson(value) {
-  if (value === null || typeof value !== "object") return value;
-  for (const key of Object.keys(value)) deepFreezeJson(value[key]);
-  return Object.freeze(value);
-}
 
 function admittedManifestOf(manifest) {
   return admitNpmPackageManifest({ type: "NpmPackageManifestCandidate", version: 1, manifest }).manifest;
@@ -36,5 +32,5 @@ export function normalizeNpmPackageLifecycleScripts(manifest) {
     name,
     typeof command === "string" ? normalizePnpmLifecycleCommand(command) : command,
   ]));
-  return deepFreezeJson({ ...admittedManifest, scripts });
+  return freezeJson({ ...admittedManifest, scripts });
 }

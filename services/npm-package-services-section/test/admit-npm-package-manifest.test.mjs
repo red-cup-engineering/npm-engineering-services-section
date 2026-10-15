@@ -3,7 +3,7 @@ import { spawnSync } from "node:child_process";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
 
-import { admitNpmPackageManifest } from "../scripts/admit-npm-package-manifest.mjs";
+import { admitNpmPackageManifest } from "@red-cup-engineering/npm-package-manifest-admission-service";
 
 const manifest = {
   name: "@scope/example",
@@ -35,7 +35,7 @@ test("refuses values that would require repair", () => {
 });
 
 test("the command maps the same admission over NDJSON", () => {
-  const script = fileURLToPath(new URL("../scripts/admit-npm-package-manifest.mjs", import.meta.url));
+  const script = fileURLToPath(new URL("@red-cup-engineering/npm-package-manifest-admission-service", import.meta.url));
   const result = spawnSync(process.execPath, [script], {
     input: `${JSON.stringify(candidate)}\n`,
     encoding: "utf8",

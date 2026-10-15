@@ -3,7 +3,7 @@ import { spawnSync } from "node:child_process";
 import test from "node:test";
 import { fileURLToPath } from "node:url";
 
-import { formNpmScopedPackageName } from "../scripts/form-npm-scoped-package-name.mjs";
+import { formNpmScopedPackageName } from "@red-cup-engineering/npm-scoped-package-name-formation-service";
 
 const request = {
   type: "NpmScopedPackageNameFormationRequest",
@@ -24,7 +24,7 @@ test("refuses parts that would require repair", () => {
 });
 
 test("the command maps the same formation over NDJSON", () => {
-  const script = fileURLToPath(new URL("../scripts/form-npm-scoped-package-name.mjs", import.meta.url));
+  const script = fileURLToPath(new URL("@red-cup-engineering/npm-scoped-package-name-formation-service", import.meta.url));
   const result = spawnSync(process.execPath, [script], {
     input: `${JSON.stringify(request)}\n`,
     encoding: "utf8",

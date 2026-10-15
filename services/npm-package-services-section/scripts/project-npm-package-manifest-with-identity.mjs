@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { admitNpmPackageManifest } from "@red-cup-engineering/npm-package-services-section/admit-npm-package-manifest";
-import { admitNpmPackageVersion } from "@red-cup-engineering/npm-package-services-section/admit-npm-package-version";
+import { admitNpmPackageManifest } from "@red-cup-engineering/npm-package-manifest-admission-service";
+import { admitNpmPackageVersion } from "@red-cup-engineering/npm-package-version-admission-service";
 
 import operationInputSchema from "../data/records/project-npm-package-manifest-with-identity.input.schema.json" with { type: "json" };
 import operationOutputSchema from "../data/records/project-npm-package-manifest-with-identity.output.schema.json" with { type: "json" };
