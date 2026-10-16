@@ -1,6 +1,6 @@
 {
   "name": "@red-cup-engineering/npm-package-manifest-normalization-service",
-  "version": "0.1.0",
+  "version": "0.2.1",
   "description": "Normalizes one npm package manifest without inventing package identity or version values.",
   "type": "module",
   "private": false,
@@ -19,7 +19,7 @@
   ],
   "dependencies": {
     "@red-cup-engineering/json-services-section": "0.4.0",
-    "@red-cup-engineering/npm-package-services-section": "0.1.1"
+    "@red-cup-engineering/npm-package-services-section": "0.1.2"
   },
   "engines": {
     "node": ">=24"
