@@ -15,13 +15,13 @@
     "./read-npm-package-set-info": "./scripts/read-npm-package-set-info.mjs"
   },
   "dependencies": {
-    "@red-cup-engineering/computer-filepath-engineering-services-section": "workspace:*",
-    "@red-cup-engineering/execute-javascript-node-command-service": "workspace:*",
-    "@red-cup-engineering/computer-file-engineering-services-section": "workspace:*",
-    "@red-cup-engineering/javascript-node-services-section": "workspace:*",
-    "@red-cup-engineering/json-services-section": "workspace:*",
-    "@red-cup-engineering/jsonl-services-section": "workspace:*",
-    "@red-cup-engineering/read-javascript-file-export-documentation-service": "workspace:*",
+    "@red-cup-engineering/computer-filepath-engineering-services-section": "0.1.0",
+    "@red-cup-engineering/execute-javascript-node-command-service": "0.3.1",
+    "@red-cup-engineering/computer-file-engineering-services-section": "0.4.0",
+    "@red-cup-engineering/javascript-node-services-section": "0.3.2",
+    "@red-cup-engineering/json-services-section": "0.4.0",
+    "@red-cup-engineering/jsonl-services-section": "0.1.0",
+    "@red-cup-engineering/read-javascript-file-export-documentation-service": "0.1.5",
     "@red-cup-engineering/npm-owner-admission-service": "0.2.0",
     "@red-cup-engineering/npm-package-name-leaf-admission-service": "0.3.0",
     "@red-cup-engineering/npm-package-version-admission-service": "0.2.0",
@@ -33,7 +33,7 @@
     "check": "check-package-syntax"
   },
   "devDependencies": {
-    "@red-cup-engineering/jsnode-package-services-section": "workspace:*"
+    "@red-cup-engineering/jsnode-package-services-section": "0.2.4"
   },
   "files": [
     "scripts",
