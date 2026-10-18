@@ -3,6 +3,11 @@
   "version": "0.2.0",
   "type": "module",
   "description": "Holds services that read, admit, project, and apply explicit npm package carriers.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/red-cup-engineering/computer-code-engineering-services-section.git",
+    "directory": "services/javascript-engineering-services-section/services/javascript-node-services-section/services/jsnode-packaging-services-section/services/npm-services-section/services/npm-package-services-section"
+  },
   "exports": {
     "./apply-npm-package-lock-regeneration-command": "./scripts/apply-npm-package-lock-regeneration-command.mjs",
     "./project-npm-package-info": "./scripts/project-npm-package-info.mjs",

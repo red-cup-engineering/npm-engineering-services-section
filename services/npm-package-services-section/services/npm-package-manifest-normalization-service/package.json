@@ -2,6 +2,11 @@
   "name": "@red-cup-engineering/npm-package-manifest-normalization-service",
   "version": "0.2.0",
   "description": "Normalizes one npm package manifest without inventing package identity or version values.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/red-cup-engineering/computer-code-engineering-services-section.git",
+    "directory": "services/javascript-engineering-services-section/services/javascript-node-services-section/services/jsnode-packaging-services-section/services/npm-services-section/services/npm-package-services-section/services/npm-package-manifest-normalization-service"
+  },
   "type": "module",
   "private": false,
   "license": "MIT",

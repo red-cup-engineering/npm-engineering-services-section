@@ -2,6 +2,11 @@
   "name": "@red-cup-engineering/project-npm-package-lock-regeneration-command-service",
   "version": "0.1.1",
   "description": "Projects an explicit npm package directory and execution policy to the shell-free command which regenerates its package lock.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/red-cup-engineering/computer-code-engineering-services-section.git",
+    "directory": "services/javascript-engineering-services-section/services/javascript-node-services-section/services/jsnode-packaging-services-section/services/npm-services-section/services/npm-package-services-section/services/project-npm-package-lock-regeneration-command-service"
+  },
   "type": "module",
   "private": false,
   "license": "MIT",

@@ -3,5 +3,10 @@
   "version": "0.1.0",
   "type": "module",
   "description": "Groups npm package, package-set, cache, and registry services.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/red-cup-engineering/computer-code-engineering-services-section.git",
+    "directory": "services/javascript-engineering-services-section/services/javascript-node-services-section/services/jsnode-packaging-services-section/services/npm-services-section"
+  },
   "dependencies": {}
 }

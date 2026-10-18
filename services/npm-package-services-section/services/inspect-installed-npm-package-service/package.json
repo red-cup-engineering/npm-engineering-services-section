@@ -2,6 +2,11 @@
   "name": "@red-cup-engineering/inspect-installed-npm-package-service",
   "version": "0.3.2",
   "description": "Reads the identity, declared faces, JavaScript syntax, and reachable import closure of one installed npm package.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/red-cup-engineering/computer-code-engineering-services-section.git",
+    "directory": "services/javascript-engineering-services-section/services/javascript-node-services-section/services/jsnode-packaging-services-section/services/npm-services-section/services/npm-package-services-section/services/inspect-installed-npm-package-service"
+  },
   "type": "module",
   "private": false,
   "license": "MIT",
