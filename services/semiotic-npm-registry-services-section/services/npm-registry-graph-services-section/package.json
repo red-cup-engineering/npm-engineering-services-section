@@ -1,6 +1,6 @@
 {
   "name": "@red-cup-engineering/npm-registry-graph-services-section",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Derives deterministic dependency, history, and witness graphs from an npm registry and renders the dependency or history tier as Graphviz DOT. Use when asking what package releases depend on, replace, or witness without publishing or serving a registry.",
   "repository": {
     "type": "git",
@@ -31,11 +31,11 @@
     "node": ">=22"
   },
   "dependencies": {
-    "@red-cup-engineering/cryptographic-computer-data-engineering-services-section": "workspace:*",
-    "@red-cup-engineering/npm-registry-query-service": "workspace:*",
+    "@red-cup-engineering/cryptographic-computer-data-engineering-services-section": "0.3.1",
+    "@red-cup-engineering/npm-registry-query-service": "0.3.1",
     "semver": "^7.8.5"
   },
   "devDependencies": {
-    "@red-cup-engineering/jsnode-package-services-section": "workspace:*"
+    "@red-cup-engineering/jsnode-package-services-section": "0.3.2"
   }
 }
