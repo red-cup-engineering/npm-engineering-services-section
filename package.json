@@ -1,6 +1,6 @@
 {
   "name": "@red-cup-engineering/npm-services-section",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Groups npm package, package-set, cache, and registry services.",
   "repository": {
@@ -8,5 +8,8 @@
     "url": "git+https://github.com/red-cup-engineering/computer-code-engineering-services-section.git",
     "directory": "services/javascript-engineering-services-section/services/javascript-node-services-section/services/jsnode-packaging-services-section/services/npm-services-section"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "files": [
+    "README.md"
+  ]
 }
