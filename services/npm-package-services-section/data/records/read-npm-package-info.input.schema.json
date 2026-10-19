@@ -1,1 +1,0 @@
-{"$schema":"https://json-schema.org/draft/2020-12/schema","description":"An NpmPackageInfoReadRequest@1.","title":"readNpmPackageInfoInput","type":"object"}
