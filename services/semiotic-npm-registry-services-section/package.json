@@ -1,6 +1,6 @@
 {
   "name": "@red-cup-engineering/semiotic-npm-registry-services-section",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "module",
   "description": "Holds the semiotic layer over the npm registry: graph derivation, receipt recovery, snapshots, release coordination, projections, and consumer dependency-closure installation. Use when working the registry as the machine's semantic catalog rather than as generic npm infrastructure.",
   "exports": {
@@ -14,9 +14,13 @@
     "check": "check-package-syntax"
   },
   "dependencies": {
-    "@red-cup-engineering/npm-registry-services-section": "workspace:*"
+    "@red-cup-engineering/npm-registry-services-section": "0.1.2"
   },
   "devDependencies": {
-    "@red-cup-engineering/jsnode-package-services-section": "workspace:*"
-  }
+    "@red-cup-engineering/jsnode-package-services-section": "0.3.0"
+  },
+  "files": [
+    "scripts",
+    "test"
+  ]
 }

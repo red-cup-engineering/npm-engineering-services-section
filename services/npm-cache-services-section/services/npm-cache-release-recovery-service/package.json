@@ -1,6 +1,6 @@
 {
   "name": "@red-cup-engineering/npm-cache-release-recovery-service",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Audits explicit npm package-lock evidence against a local npm cache and recovers only integrity-verified exact release tarballs.",
   "repository": {
     "type": "git",
@@ -34,6 +34,6 @@
   },
   "dependencies": {
     "cacache": "20.0.4",
-    "@red-cup-engineering/javascript-file-services-section": "workspace:*"
+    "@red-cup-engineering/javascript-file-services-section": "0.1.2"
   }
 }

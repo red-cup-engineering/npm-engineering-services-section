@@ -31,8 +31,8 @@ function lockfileText(resolvedLines) {
 
 test("classifies house-scoped and non-house dead-host URLs", () => {
   assert.deepEqual(
-    classifyResolvedUrl("http://127.0.0.1:4873/@red-cup-engineering/eavt-services-section/-/eavt-0.5.0.tgz"),
-    { deadHost: true, houseScoped: true, misrouted: false, url: "https://registry.561.group/@red-cup-engineering/eavt-services-section/-/eavt-0.5.0.tgz" },
+    classifyResolvedUrl("http://127.0.0.1:4873/@red-cup-engineering/eavt-services-section/-/eavt-services-section-0.5.0.tgz"),
+    { deadHost: true, houseScoped: true, misrouted: false, url: "https://registry.561.group/@red-cup-engineering/eavt-services-section/-/eavt-services-section-0.5.0.tgz" },
   );
   assert.deepEqual(
     classifyResolvedUrl("http://127.0.0.1:4873/lodash/-/lodash-4.17.21.tgz"),
@@ -53,7 +53,7 @@ test("classifies a non-house package misrouted through registry.561.group", () =
 
 test("leaves already-correct hosts unclassified", () => {
   assert.deepEqual(
-    classifyResolvedUrl("https://registry.561.group/@red-cup-engineering/eavt-services-section/-/eavt-0.5.0.tgz"),
+    classifyResolvedUrl("https://registry.561.group/@red-cup-engineering/eavt-services-section/-/eavt-services-section-0.5.0.tgz"),
     { deadHost: false, houseScoped: true, misrouted: false, url: null },
   );
   assert.deepEqual(
@@ -68,16 +68,16 @@ test("rewrites a house-scoped package resolved through the laptop verdaccio cach
   const before = lockfileText([
     '    "node_modules/@red-cup-engineering/eavt-services-section": {',
     '      "version": "0.5.0",',
-    '      "resolved": "http://127.0.0.1:4873/@red-cup-engineering/eavt-services-section/-/eavt-0.5.0.tgz",',
+    '      "resolved": "http://127.0.0.1:4873/@red-cup-engineering/eavt-services-section/-/eavt-services-section-0.5.0.tgz",',
     '      "integrity": "sha512-deadbeef=="',
     "    }",
   ]);
   const { output, rewrites } = rewritePackageLockText(before);
   assert.deepEqual(rewrites, [{
-    from: "http://127.0.0.1:4873/@red-cup-engineering/eavt-services-section/-/eavt-0.5.0.tgz",
-    to: "https://registry.561.group/@red-cup-engineering/eavt-services-section/-/eavt-0.5.0.tgz",
+    from: "http://127.0.0.1:4873/@red-cup-engineering/eavt-services-section/-/eavt-services-section-0.5.0.tgz",
+    to: "https://registry.561.group/@red-cup-engineering/eavt-services-section/-/eavt-services-section-0.5.0.tgz",
   }]);
-  assert.match(output, /"resolved": "https:\/\/registry\.561\.group\/@red-cup-engineering\/eavt\/-\/eavt-0\.5\.0\.tgz"/);
+  assert.match(output, /"resolved": "https:\/\/registry\.561\.group\/@red-cup-engineering\/eavt-services-section\/-\/eavt-services-section-0\.5\.0\.tgz"/);
   assert.match(output, /"integrity": "sha512-deadbeef=="/);
 });
 
@@ -133,7 +133,7 @@ test("rewrites a run.app host regardless of subdomain", () => {
 test("rewrites a non-house package misrouted through registry.561.group to the public registry, leaving a correctly-hosted house package alone", () => {
   const before = lockfileText([
     '    "node_modules/@red-cup-engineering/eavt-services-section": {',
-    '      "resolved": "https://registry.561.group/@red-cup-engineering/eavt-services-section/-/eavt-0.5.0.tgz",',
+    '      "resolved": "https://registry.561.group/@red-cup-engineering/eavt-services-section/-/eavt-services-section-0.5.0.tgz",',
     '      "integrity": "sha512-deadbeef=="',
     "    },",
     '    "node_modules/chalk": {',
@@ -146,7 +146,7 @@ test("rewrites a non-house package misrouted through registry.561.group to the p
     from: "https://registry.561.group/chalk/-/chalk-5.3.0.tgz",
     to: "https://registry.npmjs.org/chalk/-/chalk-5.3.0.tgz",
   }]);
-  assert.match(output, /"resolved": "https:\/\/registry\.561\.group\/@red-cup-engineering\/eavt\/-\/eavt-0\.5\.0\.tgz"/);
+  assert.match(output, /"resolved": "https:\/\/registry\.561\.group\/@red-cup-engineering\/eavt-services-section\/-\/eavt-services-section-0\.5\.0\.tgz"/);
   assert.match(output, /"resolved": "https:\/\/registry\.npmjs\.org\/chalk\/-\/chalk-5\.3\.0\.tgz"/);
   assert.match(output, /"integrity": "sha512-feedface=="/);
 });
@@ -154,7 +154,7 @@ test("rewrites a non-house package misrouted through registry.561.group to the p
 test("leaves resolved values already pointing at a canonical registry byte-identical", () => {
   const before = lockfileText([
     '    "node_modules/@red-cup-engineering/eavt-services-section": {',
-    '      "resolved": "https://registry.561.group/@red-cup-engineering/eavt-services-section/-/eavt-0.5.0.tgz",',
+    '      "resolved": "https://registry.561.group/@red-cup-engineering/eavt-services-section/-/eavt-services-section-0.5.0.tgz",',
     '      "integrity": "sha512-deadbeef=="',
     "    },",
     '    "node_modules/chalk": {',
@@ -169,7 +169,7 @@ test("leaves resolved values already pointing at a canonical registry byte-ident
 
 test("parses package and version from a house registry tarball URL", () => {
   assert.deepEqual(
-    parseRegistryTarballUrl("https://registry.561.group/@red-cup-engineering/eavt-services-section/-/eavt-0.5.0.tgz"),
+    parseRegistryTarballUrl("https://registry.561.group/@red-cup-engineering/eavt-services-section/-/eavt-services-section-0.5.0.tgz"),
     { package: "@red-cup-engineering/eavt-services-section", version: "0.5.0" },
   );
   assert.equal(parseRegistryTarballUrl("https://registry.561.group/not-a-tarball-shape"), null);
@@ -212,7 +212,7 @@ test("the CLI dry-run reports counts without writing, and --apply writes the rew
     mkdirSync(join(root, "excluded-service"), { recursive: true });
     const houseLock = lockfileText([
       '    "node_modules/@red-cup-engineering/eavt-services-section": {',
-      '      "resolved": "http://127.0.0.1:4873/@red-cup-engineering/eavt-services-section/-/eavt-0.5.0.tgz",',
+      '      "resolved": "http://127.0.0.1:4873/@red-cup-engineering/eavt-services-section/-/eavt-services-section-0.5.0.tgz",',
       '      "integrity": "sha512-deadbeef=="',
       "    },",
       '    "node_modules/lodash": {',
@@ -243,7 +243,7 @@ test("the CLI dry-run reports counts without writing, and --apply writes the rew
     const apply = spawnSync(process.execPath, [SCRIPT_PATH, "--root", root, "--exclude", "excluded-service", "--apply"], { encoding: "utf8" });
     assert.equal(apply.status, 0, apply.stderr);
     const applied = readFileSync(join(root, "package-a", "package-lock.json"), "utf8");
-    assert.match(applied, /"resolved": "https:\/\/registry\.561\.group\/@red-cup-engineering\/eavt\/-\/eavt-0\.5\.0\.tgz"/);
+    assert.match(applied, /"resolved": "https:\/\/registry\.561\.group\/@red-cup-engineering\/eavt-services-section\/-\/eavt-services-section-0\.5\.0\.tgz"/);
     assert.match(applied, /"resolved": "https:\/\/registry\.npmjs\.org\/lodash\/-\/lodash-4\.17\.21\.tgz"/);
     assert.equal(readFileSync(join(root, "excluded-service", "package-lock.json"), "utf8"), excludedLock, "excluded lockfile must be untouched");
   } finally {
