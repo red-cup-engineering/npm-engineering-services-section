@@ -1,6 +1,6 @@
 {
   "name": "@red-cup-engineering/project-npm-package-lock-regeneration-command-service",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Projects an explicit npm package directory and execution policy to the shell-free command which regenerates its package lock.",
   "repository": {
     "type": "git",
@@ -20,8 +20,8 @@
     "data/records/schema"
   ],
   "dependencies": {
-    "@red-cup-engineering/javascript-node-services-section": "workspace:*",
-    "@red-cup-engineering/json-services-section": "workspace:*"
+    "@red-cup-engineering/javascript-node-services-section": "0.4.1",
+    "@red-cup-engineering/json-services-section": "0.4.1"
   },
   "scripts": {
     "check": "check-package-syntax",
@@ -32,7 +32,7 @@
     "node": ">=24"
   },
   "devDependencies": {
-    "@red-cup-engineering/jsonl-services-section": "workspace:*",
-    "@red-cup-engineering/jsnode-package-services-section": "workspace:*"
+    "@red-cup-engineering/jsonl-services-section": "0.1.1",
+    "@red-cup-engineering/jsnode-package-services-section": "0.3.0"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@red-cup-engineering/npm-package-install-resolution-assay-service",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Installs selected exact npm package surfaces into isolated temporary consumers with lifecycle scripts disabled, reporting dependency-resolution/install-closure receipts without claiming runtime correctness.",
   "repository": {
     "type": "git",

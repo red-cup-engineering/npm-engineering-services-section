@@ -4,7 +4,7 @@ import { freezeJson } from "@red-cup-engineering/json-services-section";
 
 import operationInputSchema from "../data/records/schema/project-npm-package-lock-regeneration-command.input.schema.json" with { type: "json" };
 import operationOutputSchema from "../data/records/schema/project-npm-package-lock-regeneration-command.output.schema.json" with { type: "json" };
-import { runJavascriptNodeOperation } from "../../../../../../../../../src/operation.mjs";
+import { runJavascriptNodeOperation } from "@red-cup-engineering/javascript-node-services-section/operation";
 
 /**
  * Projects one explicit request to the shell-free command which regenerates its package lock.
