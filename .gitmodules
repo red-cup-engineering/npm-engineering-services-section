@@ -14,3 +14,7 @@
 	path = services/npm-workspace-engineering-services-section
 	url = https://github.com/red-cup-engineering/npm-workspace-engineering-services-section.git
 	branch = main
+[submodule "npm-cache-release-recovery-service"]
+	path = services/npm-cache-services-section/services/npm-cache-release-recovery-service
+	url = https://github.com/red-cup-engineering/npm-cache-release-recovery-service.git
+	branch = main
