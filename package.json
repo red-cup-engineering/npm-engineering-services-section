@@ -8,10 +8,6 @@
     "type": "git",
     "url": "git+https://github.com/red-cup-engineering/npm-engineering-services-section.git"
   },
-  "dependencies": {},
-  "files": [
-    "README.md"
-  ],
   "license": "MIT",
   "funding": {
     "type": "individual",
