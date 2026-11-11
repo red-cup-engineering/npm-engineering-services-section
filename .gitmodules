@@ -10,7 +10,3 @@
 	path = services/npm-package-services-section
 	url = https://github.com/red-cup-engineering/npm-package-engineering-services-section.git
 	branch = main
-[submodule "services/npm-cache-services-section/services/npm-cache-release-recovery-service"]
-	path = services/npm-cache-services-section/services/npm-cache-release-recovery-service
-	url = https://github.com/red-cup-engineering/npm-cache-release-recovery-service.git
-	branch = main

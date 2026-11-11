@@ -1,0 +1,48 @@
+{
+  "name": "@red-cup-engineering/npm-cache-release-recovery-service",
+  "version": "0.0.1",
+  "description": "Audits explicit npm package-lock evidence against a local npm cache and recovers only integrity-verified exact release tarballs.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/red-cup-engineering/npm-engineering-services-section.git",
+    "directory": "services/npm-cache-services-section/services/npm-cache-release-recovery-service"
+  },
+  "type": "module",
+  "private": false,
+  "license": "MIT",
+  "exports": {
+    ".": "./src/recover-npm-cache-releases.mjs"
+  },
+  "files": [
+    "src",
+    "scripts",
+    "package.json",
+    "README.md",
+    "docs/API.md",
+    "examples/quickstart.test.mjs"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "bin": {
+    "recover-npm-cache-releases": "./scripts/recover-npm-cache-releases.mjs"
+  },
+  "scripts": {
+    "check": "node --check src/recover-npm-cache-releases.mjs && node --check src/recovery-sources.mjs && node --check src/portable-cache.mjs && node --check scripts/recover-npm-cache-releases.mjs",
+    "test": "node --test test/*.test.mjs",
+    "pack:dry-run": "npm pack --dry-run --ignore-scripts",
+    "test:consumer": "node --test examples/quickstart.test.mjs"
+  },
+  "engines": {
+    "node": ">=22.9.0"
+  },
+  "dependencies": {
+    "cacache": "20.0.4",
+    "@red-cup-engineering/javascript-file-services-section": "0.1.2"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/561-group/.github/blob/main/TIPS.md"
+  }
+}
