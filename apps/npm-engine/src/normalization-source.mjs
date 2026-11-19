@@ -129,7 +129,7 @@ export async function receiveInputs(root, inputs) {
 }
 
 export async function replacePlannedSources(root, inputs, changes, original) {
-  const prepared = [], installed = [], retained = new Set();
+  const prepared = [], installed = [], kept = new Set();
   let activePath;
   try {
     for (const change of changes) {
@@ -168,7 +168,7 @@ export async function replacePlannedSources(root, inputs, changes, original) {
         }
         await rename(row.before, row.target);
       } catch (restoration) {
-        retained.add(row.staging);
+        kept.add(row.staging);
         failures.push({
           kind: "restore-failed", path: row.change.path, reason: restoration.message,
           original: row.before,
@@ -178,7 +178,7 @@ export async function replacePlannedSources(root, inputs, changes, original) {
     return failures;
   } finally {
     for (const row of prepared) {
-      if (!retained.has(row.staging)) await rm(row.staging, { recursive: true, force: true }).catch(() => {});
+      if (!kept.has(row.staging)) await rm(row.staging, { recursive: true, force: true }).catch(() => {});
     }
   }
 }

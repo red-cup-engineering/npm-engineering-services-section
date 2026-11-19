@@ -226,8 +226,8 @@ export async function applyNpmPackageNormalization({ root, plan } = {}) {
 
   const received = await receiveInputs(absoluteRoot, inputs);
   const { failures } = received;
-  const refused = () => Object.freeze({ ...plan, ready: false, applied: false, failures });
-  if (failures.length) return refused();
+  const rejected = () => Object.freeze({ ...plan, ready: false, applied: false, failures });
+  if (failures.length) return rejected();
   const configuration = await readNpmRegistryConfiguration({
     root: absoluteRoot, registry: plan.registryOverride ?? undefined, signal: AbortSignal.timeout(15000),
   });
@@ -236,7 +236,7 @@ export async function applyNpmPackageNormalization({ root, plan } = {}) {
       failures.push({ kind: "registry-changed", name, reason: "npm registry selection differs from the received plan" });
     }
   }
-  if (failures.length) return refused();
+  if (failures.length) return rejected();
   failures.push(...await replacePlannedSources(absoluteRoot, inputs, plan.changes, received.observed));
-  return failures.length ? refused() : Object.freeze({ ...plan, applied: true });
+  return failures.length ? rejected() : Object.freeze({ ...plan, applied: true });
 }
